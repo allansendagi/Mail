@@ -1,5 +1,7 @@
 import React from 'react';
-import { Image, Menu, Form, Input } from 'semantic-ui-react';
+import { Image, Menu, Form, Input,Icon } 
+
+	     from 'semantic-ui-react';
 import './headernav.styles.scss';
 import logo from '../../assets/images/logo.jpg';
 
@@ -21,7 +23,23 @@ class HeaderNav extends React.Component {
 			  	    </Form.Field>
 			  	  </Form>
 			  	</Menu.Item>
-
+			  	<Menu.Menu position='right'>
+			  	  	<Menu.Menu>
+			  	  	  <Icon className='header-icon' name='video camera' size='large' />
+			  	  	  	</Menu.Menu>
+			  	  	  	 <Menu.Menu>
+			  	  	  	  <Icon className='header-icon' name='grid layout' size='large' />
+			  	  	  	  </Menu.Menu>
+			  	  	  	 <Menu.Menu>
+			  	  	  	 <Icon className='header-icon' name='chat' size='large' />
+			  	  	  	</Menu.Menu>
+			  	  	  	<Menu.Menu>
+			  	  	  	<Icon className='header-icon' name='alarm' size='large' />
+			  	  	  </Menu.Menu>
+			  	  	 <Menu.Menu name='avatar'>
+			  	  	<Image src='http://via.placeholder.com/80x80'/>
+			  	 </Menu.Menu>
+			  	</Menu.Menu>  
 			  </Menu.Menu>
 			</Menu>
 
