@@ -37,7 +37,7 @@ class HeaderNav extends React.Component {
 			  	  	  	<Icon className='header-icon' name='alarm' size='large' />
 			  	  	  </Menu.Menu>
 			  	  	 <Menu.Menu name='avatar'>
-			  	  	<Image src='http://via.placeholder.com/80x80'/>
+			  	  	<Image src='http://via.placeholder.com/80x80' avatar/>
 			  	 </Menu.Menu>
 			  	</Menu.Menu>  
 			  </Menu.Menu>
