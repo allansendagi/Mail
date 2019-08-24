@@ -18,7 +18,7 @@ class HeaderNav extends React.Component {
 			  	  	<Form.Field>
 			  	  	  <Input placeholder='search' 
 			  	  	  		 size='small'
-			  	  	  		 actions='Go'
+			  	  	  		 action='Go'
 			  	  	  	 />
 			  	    </Form.Field>
 			  	  </Form>
