@@ -1,19 +1,21 @@
-import React from 'react';
-
-import HeaderNav from './containers/headernav/headernav.container';
-
-import  SideBar  from './containers/sidebar/sidebar.component';
+import React, {Component} from 'react';
+import {Watch} from './containers/watch/watch.component';
 import { Home } from './containers/home/home.component';
+import {AppLayout} from './components/app-layout/app-layout.component';
 import './containers/home/home.styles.scss'
+import {Route, Switch} from 'react-router-dom';
 
-function App() {
+class App extends Component {
+	render() {
   return (
-    <div >
-    	<HeaderNav />
-    	<SideBar />
-    	<home />
-    </div>
+    <AppLayout>
+      <Switch>
+       <Route path="/watch" component={Watch} />
+    	<Route path="/" component={Home} />
+      </Switch>
+    </AppLayout>
   );
+ }
 }
 
 export default App;

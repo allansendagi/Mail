@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VideoGridHeader renders with empty string header 1`] = `ShallowWrapper {}`;
+
+exports[`VideoGridHeader renders with title 1`] = `ShallowWrapper {}`;
+
+exports[`VideoGridHeader renders without props 1`] = `ShallowWrapper {}`;
