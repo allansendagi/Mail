@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VideoMetadata renders with view count 1`] = `ShallowWrapper {}`;
+
+exports[`VideoMetadata renders without props 1`] = `ShallowWrapper {}`;
