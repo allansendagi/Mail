@@ -12,7 +12,6 @@ export class Watch extends React.Component {
 			  <Video className='video' id='-7fuHEEmEjs'/>
 			  <VideoMetadata className='metadata' viewCount={1000}/>
 			  <VideoInfoBox className='video-info-box'/>
-			  <div className='video-info-box' style={{width: '100%', height: '100px', background: '#BD10E0'}}>Video Info box</div>
 			  <div className='comments' style={{width: '100%', height: '100px', background: '#9013FE'}}>comments</div>
 			  <RelatedVideos className='relatedVideos'/>
 			</div>
