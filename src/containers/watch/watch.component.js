@@ -3,6 +3,7 @@ import {RelatedVideos} from '../../components/related-videos/related-videos.comp
 import {Video} from '../../components/video/video.component';
 import {VideoMetadata} from '../../components/video-metadata/video-metadata.component';
 import { VideoInfoBox } from '../../components/video-infobox/video-infobox.component'
+import {Comments} from '../comments/comments.container';
 import './watch.styles.scss';
 
 export class Watch extends React.Component {
@@ -12,7 +13,7 @@ export class Watch extends React.Component {
 			  <Video className='video' id='-7fuHEEmEjs'/>
 			  <VideoMetadata className='metadata' viewCount={1000}/>
 			  <VideoInfoBox className='video-info-box'/>
-			  <div className='comments' style={{width: '100%', height: '100px', background: '#9013FE'}}>comments</div>
+			  <Comments className='comments'/>
 			  <RelatedVideos className='relatedVideos'/>
 			</div>
 		)

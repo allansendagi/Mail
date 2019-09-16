@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Comments renders without amountComments 1`] = `ShallowWrapper {}`;
+
+exports[`Comments renders without props 1`] = `ShallowWrapper {}`;
