@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {Watch} from './containers/watch/watch.component';
-import { Home } from './containers/home/home.component';
+import Home from './containers/home/home.component';
 import {AppLayout} from './components/app-layout/app-layout.component';
 import './containers/home/home.styles.scss'
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {youtubeLibraryLoaded} from './store/actions/api';
@@ -45,4 +45,4 @@ function mapDispatchToProps(dispatch) {
 	return bindActionCreators({youtubeLibraryLoaded}, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default withRouter(connect(null, mapDispatchToProps)(App));
