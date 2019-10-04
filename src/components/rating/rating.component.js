@@ -1,13 +1,13 @@
 import React from 'react';
 import './rating.styles.scss';
-import {Icon, progress} from 'semantic-ui-react';
+import {Icon, Progress} from 'semantic-ui-react';
 
 export function Rating(props) {
 
 	let progress = null;
 	if (props.likeCount && props.dislikeCount) {
 		const percent =100 * (props.likeCount / (props.likeCount + props.dislikeCount));
-		progress = <progress className='progress' percent={percent} size='tiny' />;
+		Progress = <progress className='progress' percent={percent} size='tiny' />;
 	}
 
 	return(
@@ -20,7 +20,7 @@ export function Rating(props) {
 		   <Icon name='thumbs outline down' />
 		   <span>{props.dislikeCount}</span>	
 		  </div>
-		  {progress}	
+		  {Progress}	
 		</div>
 	)
 }
