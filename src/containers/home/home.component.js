@@ -31,13 +31,30 @@ class Home extends React.Component {
       this.props.fetchMostPopularVideos();
     }
   }
+   componentDidMount() {
+    if (this.props.youtubeLibraryLoaded) {
+      this.fetchCategoriesAndMostPopularVideos();
+    }
+  }
+    componentDidUpdate(prevProps) {
+    if (this.props.youtubeLibraryLoaded !== prevProps.youtubeLibraryLoaded) {
+      this.fetchCategoriesAndMostPopularVideos();
+    }
+  }
 
   componentDidUpdate(prevProps) {
     if (this.props.youtubeLibraryLoaded !== prevProps.youtubeLibraryLoaded) {
       this.props.fetchMostPopularVideos();
     }
   }
+
+    fetchCategoriesAndMostPopularVideos() {
+    this.props.fetchMostPopularVideos();
+    this.props.fetchVideoCategories();
+  }
 }
+
+
 
 function mapStateToProps(state) {
   return {
@@ -47,6 +64,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   const fetchMostPopularVideos = videoActions.mostPopular.request;
+  const fetchVideoCategories = videoActions.categories.request;
   return bindActionCreators({fetchMostPopularVideos}, dispatch);
 }
 
