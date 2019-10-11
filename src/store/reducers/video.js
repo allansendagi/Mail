@@ -1,4 +1,4 @@
-import {MOST_POPULAR, VIDEO_CATEGORIES} from '../actions/video';
+import {MOST_POPULAR, MOST_POPULAR_BY_CATEGORY, VIDEO_CATEGORIES} from '../actions/video';
 import {SUCCESS} from '../actions';
 import {createSelector} from 'reselect';
 
@@ -6,7 +6,13 @@ import {createSelector} from 'reselect';
 const initialState = {
   byId: {},
   mostPopular: {},
+  categories: {},
+  byCategory: {},
+  related: {},
+
+
 };
+
 function reduceFetchMostPopularVideos(response, prevState) {
   const videoMap = response.items.reduce((accumulator, video) => {
     accumulator[video.id] = video;
@@ -44,6 +50,8 @@ export default function videos(state = initialState, action) {
       return reduceFetchMostPopularVideos(action.response, state);
       case VIDEO_CATEGORIES[SUCCESS]:
       return reduceFetchVideoCategories(action.response, state);
+      case MOST_POPULAR_BY_CATEGORY[SUCCESS]:
+      return reduceFetchMostPopularVideosByCategory(action.response, action.categories, state);
     default:
       return state;
   }
@@ -69,6 +77,28 @@ function reduceFetchVideoCategories(response, prevState) {
     categories: categoryMapping,
   };
 }
+function reduceFetchMostPopularVideosByCategory(responses, categories, prevState) {
+  let videoMap = {};
+  let byCategoryMap = {};
+
+  responses.forEach((response, index) => {
+    // ignore answer if there was an error
+    if (response.status === 400) return;
+
+    const categoryId = categories[index];
+    const {byId, byCategory} = groupVideosByIdAndCategory(response.result);
+    videoMap = {...videoMap, ...byId};
+    byCategoryMap[categoryId] = byCategory;
+  });
+
+  // compute new state
+  return {
+    ...prevState,
+    byId: {...prevState.byId, ...videoMap},
+    byCategory: {...prevState.byCategory, ...byCategoryMap},
+  };
+}
+
 
 
 

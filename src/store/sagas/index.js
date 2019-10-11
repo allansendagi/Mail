@@ -1,11 +1,19 @@
 import {all, call, put, fork} from 'redux-saga/effects';
-import {watchMostPopularVideos, watchVideoCategories} from './video';
+import {watchMostPopularVideos, watchMostPopularVideosByCategory, watchVideoCategories} from './video';
 
 export default function* () {
 	yield all([
 	  fork(watchMostPopularVideos),
     fork(watchVideoCategories),
+    fork(watchMostPopularVideosByCategory)
+
 	]);
+}
+export function ignoreErrors(fn, ...args) {
+  return () => {
+    const ignoreErrorCallback = (response) => response;
+    return fn(...args).then(ignoreErrorCallback, ignoreErrorCallback);
+  };
 }
 
 /*
