@@ -2,7 +2,7 @@ import React from 'react';
 import {VideoGrid} from '../../../components/video-grid/video-grid.component';
 import './homeContent.scss';
 import {getMostPopularVideos, getVideosByCategory} from '../../../store/reducers/video';
-import {getVideoCategoryIds} from '../../store/reducers/videos';
+// import {getVideoCategoryIds} from '../../store/reducers/video';
 
 import {connect} from 'react-redux';
 

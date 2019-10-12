@@ -8,7 +8,6 @@ const initialState = {
   mostPopular: {},
   categories: {},
   byCategory: {},
-  related: {},
 
 
 };
@@ -98,7 +97,41 @@ function reduceFetchMostPopularVideosByCategory(responses, categories, prevState
     byCategory: {...prevState.byCategory, ...byCategoryMap},
   };
 }
+function groupVideosByIdAndCategory(response) {
+  const videos = response.items;
+  const byId = {};
+  const byCategory = {
+    totalResults: response.pageInfo.totalResults,
+    nextPageToken: response.nextPageToken,
+    items: [],
+  };
 
+  videos.forEach((video) => {
+    byId[video.id] = video;
+
+    const items = byCategory.items;
+    if(items && items) {
+      items.push(video.id);
+    } else {
+      byCategory.items = [video.id];
+    }
+  });
+
+  return {byId, byCategory};
+}
+export const getVideosByCategory = createSelector(
+  state => state.videos.byCategory,
+  state => state.videos.byId,
+  state => state.videos.categories,
+  (videosByCategory, videosById, categories) => {
+    return Object.keys(videosByCategory || {}).reduce((accumulator, categoryId) => {
+      const videoIds = videosByCategory[categoryId].items;
+      const categoryTitle = categories[categoryId];
+      accumulator[categoryTitle] = videoIds.map(videoId => videosById[videoId]);
+      return accumulator;
+    }, {});
+  }
+);
 
 
 

@@ -6,7 +6,7 @@ import SideBar from '../sidebar/sidebar.component';
 import HomeContent from './homeContent/homeContent';
 import {bindActionCreators} from 'redux';
 import {getYoutubeLibraryLoaded} from '../../store/reducers/api';
-import {getVideoCategoryIds, videoCategoriesLoaded, videosByCategoryLoaded} from '../../store/reducers/videos';
+import {getVideoCategoryIds, videoCategoriesLoaded, videosByCategoryLoaded} from '../../store/reducers/video';
 
 class Home extends React.Component {
   constructor(props) {
