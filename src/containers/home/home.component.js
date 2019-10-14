@@ -26,16 +26,13 @@ class Home extends React.Component {
       </React.Fragment>
     );
   }
-  componentDidMount() {
-    if (this.props.youtubeLibraryLoaded) {
-      this.props.fetchMostPopularVideos();
-    }
-  }
-   componentDidMount() {
+  
+    componentDidMount() {
     if (this.props.youtubeLibraryLoaded) {
       this.fetchCategoriesAndMostPopularVideos();
     }
   }
+ 
     componentDidUpdate(prevProps) {
     if (this.props.youtubeLibraryLoaded !== prevProps.youtubeLibraryLoaded) {
       this.fetchCategoriesAndMostPopularVideos();
@@ -53,6 +50,7 @@ class Home extends React.Component {
     fetchCategoriesAndMostPopularVideos() {
     this.props.fetchMostPopularVideos();
     this.props.fetchVideoCategories();
+
   }
   fetchVideosByCategory() {
     const categoryStartIndex = this.state.categoryIndex;
@@ -64,6 +62,10 @@ class Home extends React.Component {
       };
     });
   }
+    fetchCategoriesAndMostPopularVideos() {
+    this.props.fetchMostPopularVideos();
+    this.props.fetchVideoCategories();
+  }
  }
 
 
@@ -74,6 +76,8 @@ function mapStateToProps(state) {
   return {
     youtubeLibraryLoaded: getYoutubeLibraryLoaded(state),
     videoCategories: getVideoCategoryIds(state),
+    videoCategoriesLoaded: videoCategoriesLoaded(state),
+    videosByCategoryLoaded: videosByCategoryLoaded(state),
   };
 }
 

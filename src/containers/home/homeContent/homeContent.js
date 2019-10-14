@@ -38,7 +38,7 @@ class HomeContent extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    mostPopularVideos: getMostPopularVideos(state),
+    videosByCategory: getVideosByCategory(state),
     mostPopularVideos: getMostPopularVideos(state),
   };
 }
