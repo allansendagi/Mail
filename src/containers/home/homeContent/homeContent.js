@@ -3,6 +3,8 @@ import {VideoGrid} from '../../../components/video-grid/video-grid.component';
 import './homeContent.scss';
 import {getMostPopularVideos, getVideosByCategory} from '../../../store/reducers/video';
 // import {getVideoCategoryIds} from '../../store/reducers/video';
+import {InfiniteScroll} from '../../../components/infinite-scroll/infinite-scroll';
+
 
 import {connect} from 'react-redux';
 
@@ -17,6 +19,7 @@ class HomeContent extends React.Component {
       <div className='home-content'>
         <div className="responsive-video-grid-container">
           <VideoGrid title='Trending' videos={trendingVideos}/>
+          {categoryGrids}
         </div>
       </div>
     );
